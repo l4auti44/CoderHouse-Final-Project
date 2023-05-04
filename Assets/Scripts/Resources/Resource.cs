@@ -14,7 +14,7 @@ public class Resource : MonoBehaviour
 
     public enum RawResources
     {
-        rock,
+        stone,
         wood
     }
     // Start is called before the first frame update

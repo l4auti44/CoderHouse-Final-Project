@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI resources;
-    private float rock, wood;
+    public float stone, wood;
     public static GameManager instance;
     
 
@@ -45,8 +45,8 @@ public class GameManager : MonoBehaviour
  
         switch (_res)
         {
-            case Resource.RawResources.rock:
-                rock += amount;
+            case Resource.RawResources.stone:
+                stone += amount;
                 break;
             case Resource.RawResources.wood:
                 wood += amount;
@@ -56,9 +56,24 @@ public class GameManager : MonoBehaviour
         RefreshResourcesText();
     }
 
+    public void UseResources(Resource.RawResources _res, float amount)
+    {
+        switch (_res)
+        {
+            case Resource.RawResources.stone:
+                stone -= amount;
+                break;
+            case Resource.RawResources.wood:
+                wood -= amount;
+                break;
+        }
+
+        RefreshResourcesText();
+    }
+
     private void RefreshResourcesText()
     {
         resources.text = "Wood: " + wood.ToString() + "\n"
-            + "Rock: " + rock.ToString();
+            + "Stone: " + stone.ToString();
     }
 }

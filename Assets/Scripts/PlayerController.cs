@@ -12,8 +12,12 @@ public class PlayerController : MonoBehaviour
     private bool running, performingAction = false;
     private float count;
     [SerializeField] private GameObject[] tools;
+    public static GameObject instance;
 
-
+    private void Awake()
+    {
+        instance = this.gameObject;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -81,7 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         switch (_type)
         {
-            case Resource.RawResources.rock:
+            case Resource.RawResources.stone:
                 
                 playerAnimator.SetBool("Mining", true);
                 tools[0].SetActive(true);
