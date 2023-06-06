@@ -34,12 +34,6 @@ public class GameManager : MonoBehaviour
         RefreshResourcesText();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void AddAmountResource(Resource.RawResources _res, float amount)
     {
  
